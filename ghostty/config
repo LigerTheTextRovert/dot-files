@@ -1,0 +1,24 @@
+font-family = "Noto Sans Mono"
+font-size = 16
+
+# Correct spacing and explicit opacity
+background-opacity = 1
+# Ensure the background is set to a specific color if the theme is interfering
+# background = #161616
+background = #141414
+
+working-directory = home
+window-inherit-working-directory = false
+
+window-padding-x = 0
+window-padding-y = 0
+
+cursor-style = block
+shell-integration = zsh
+mouse-hide-while-typing = true
+unfocused-split-opacity = 0.9
+
+theme = Dark+
+link-url = true
+gtk-titlebar = false
+

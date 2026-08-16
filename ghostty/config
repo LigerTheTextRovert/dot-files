@@ -1,14 +1,19 @@
-font-family = "Noto Sans Mono"
-font-size = 16
+# font-family = "Noto Sans Mono"
+font-family = "Fira Code"
+font-size = 15
 
 # Correct spacing and explicit opacity
 background-opacity = 1
-# Ensure the background is set to a specific color if the theme is interfering
-# background = #161616
+
 background = #141414
+# background = #010b14
 
 working-directory = home
 window-inherit-working-directory = false
+
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
 
 window-padding-x = 0
 window-padding-y = 0

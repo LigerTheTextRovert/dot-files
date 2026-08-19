@@ -1,0 +1,317 @@
+/* Kanagawa-inspired Waybar
+ *
+ * Palette:
+ * sumiInk0  #16161D
+ * sumiInk1  #1F1F28
+ * sumiInk2  #2A2A37
+ * sumiInk3  #363646
+ * fujiWhite #DCD7BA
+ * fujiGray  #727169
+ * oldWhite  #C8C093
+ * autumnRed #C34043
+ * autumnYellow #DCA561
+ * autumnGreen #76946A
+ * waveBlue1 #223249
+ * waveAqua1 #6A9589
+ * crystalBlue #7E9CD8
+ */
+
+* {
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  font-weight: bold;
+  min-height: 0;
+}
+
+window#waybar {
+  background: #1f1f28;
+  color: #dcd7ba;
+
+  border-bottom: 1px solid #363646;
+
+  transition-property: background-color;
+  transition-duration: 0.2s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/* -----------------------------------------------------
+ * Workspaces
+ * ----------------------------------------------------- */
+
+#workspaces {
+  margin: 0;
+  /* padding: 0 4px; */
+}
+
+#workspaces button {
+  padding: 0 8px;
+  /* margin: 0 2px; */
+
+  color: #727169;
+  background: transparent;
+
+  border: none;
+  border-radius: 0;
+
+  box-shadow: none;
+}
+
+#workspaces button:hover {
+  color: #dcd7ba;
+  background: #2a2a37;
+  box-shadow: none;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+  color: #dcd7ba;
+  background: #363646;
+
+  box-shadow: inset 0 -2px #7e9cd8;
+}
+
+#workspaces button.urgent {
+  color: #c34043;
+  background: transparent;
+}
+
+/* -----------------------------------------------------
+ * Common modules
+ * ----------------------------------------------------- */
+
+#clock,
+#battery,
+#network,
+#pulseaudio,
+#language,
+#keyboard-state,
+#tray,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon {
+  padding: 0 9px;
+  margin: 0;
+  background: transparent;
+  color: #c8c093;
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
+#clock {
+  color: #dcd7ba;
+  padding-right: 12px;
+}
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
+
+#network {
+  color: #7e9cd8;
+}
+
+#network:hover {
+  color: #dcd7ba;
+  background: #2a2a37;
+}
+
+#network.disconnected {
+  color: #c34043;
+}
+
+/* -----------------------------------------------------
+ * Audio
+ * ----------------------------------------------------- */
+
+#pulseaudio {
+  color: #dca561;
+}
+
+#pulseaudio:hover {
+  color: #dcd7ba;
+  background: #2a2a37;
+}
+
+#pulseaudio.muted {
+  color: #727169;
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- */
+
+#battery {
+  color: #76946a;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #98bb6c;
+}
+
+#battery.warning:not(.charging) {
+  color: #dca561;
+}
+
+#battery.critical:not(.charging) {
+  color: #c34043;
+}
+
+/* -----------------------------------------------------
+ * Language / Keyboard
+ * ----------------------------------------------------- */
+
+#language,
+#keyboard-state {
+  color: #957fb8;
+}
+
+#language {
+  padding: 0 8px;
+}
+
+#keyboard-state {
+  padding: 0;
+  margin: 0;
+}
+
+#keyboard-state > label {
+  padding: 0 8px;
+}
+
+#keyboard-state > label.locked {
+  background: #363646;
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+#tray {
+  color: #c8c093;
+  padding: 0 8px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  color: #c34043;
+}
+
+/* -----------------------------------------------------
+ * CPU / Memory / Temperature
+ * ----------------------------------------------------- */
+
+#cpu {
+  color: #7e9cd8;
+}
+
+#memory {
+  color: #957fb8;
+}
+
+#temperature {
+  color: #dca561;
+}
+
+#temperature.critical {
+  color: #c34043;
+}
+
+/* -----------------------------------------------------
+ * Backlight
+ * ----------------------------------------------------- */
+
+#backlight {
+  color: #7aa89f;
+}
+
+/* -----------------------------------------------------
+ * Scratchpad
+ * ----------------------------------------------------- */
+
+#scratchpad {
+  color: #727169;
+}
+
+#scratchpad.empty {
+  color: transparent;
+  background: transparent;
+}
+
+/* -----------------------------------------------------
+ * Idle inhibitor
+ * ----------------------------------------------------- */
+
+#idle_inhibitor {
+  color: #727169;
+}
+
+#idle_inhibitor.activated {
+  color: #dcd7ba;
+  background: #363646;
+}
+
+/* -----------------------------------------------------
+ * Power profiles
+ * ----------------------------------------------------- */
+
+#power-profiles-daemon {
+  color: #727169;
+}
+
+#power-profiles-daemon.performance {
+  color: #c34043;
+}
+
+#power-profiles-daemon.balanced {
+  color: #7e9cd8;
+}
+
+#power-profiles-daemon.power-saver {
+  color: #76946a;
+}
+
+/* -----------------------------------------------------
+ * Tooltip
+ * ----------------------------------------------------- */
+
+tooltip {
+  background: #1f1f28;
+  border: 1px solid #363646;
+}
+
+tooltip label {
+  color: #dcd7ba;
+  padding: 4px;
+}
+
+/* -----------------------------------------------------
+ * General hover
+ * ----------------------------------------------------- */
+
+#clock:hover,
+#battery:hover,
+#language:hover,
+#keyboard-state:hover,
+#tray:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#backlight:hover,
+#idle_inhibitor:hover,
+#scratchpad:hover,
+#power-profiles-daemon:hover {
+  background: #2a2a37;
+}

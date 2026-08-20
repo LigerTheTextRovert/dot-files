@@ -251,8 +251,10 @@ bindsym $mod+r mode "resize"
 
 # No titlebars in normal tiling mode.
 # Tabbed/stacking layouts still display their container titles.
-default_border pixel 2
-default_floating_border normal 2
+default_border pixel 1
+default_floating_border pixel 1
+titlebar_border_thickness 1
+titlebar_padding 4 4
 
 # Kanagawa palette
 # sumiInk0   #16161D
@@ -265,5 +267,11 @@ default_floating_border normal 2
 # springGreen #98BB6C
 # autumnRed  #C34043
 # autumnYellow #DCA561
+
+client.focused            #7E9CD8      #2A2A37        #DCD7BA      #7E9CD8        #7E9CD8
+client.focused_inactive   #363646      #1F1F28        #727169      #363646        #363646
+client.unfocused          #2A2A37      #1F1F28        #727169      #2A2A37        #2A2A37
+client.urgent             #C34043      #C34043        #DCD7BA      #C34043        #C34043
+client.placeholder        #16161D      #16161D        #727169      #16161D        #16161D
 
 include /etc/sway/config.d/*

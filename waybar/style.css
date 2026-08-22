@@ -17,9 +17,9 @@
  */
 
 * {
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono NL', monospace;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: normal;
   min-height: 0;
 }
 
@@ -100,6 +100,7 @@ window#waybar.hidden {
   margin: 0;
   background: transparent;
   color: #c8c093;
+  font-size: 16px;
 }
 
 /* -----------------------------------------------------
@@ -215,18 +216,22 @@ window#waybar.hidden {
 
 #cpu {
   color: #7e9cd8;
+  font-size: 16px;
 }
 
 #memory {
   color: #957fb8;
+  font-size: 16px;
 }
 
 #temperature {
   color: #dca561;
+  font-size: 16px;
 }
 
 #temperature.critical {
   color: #c34043;
+  font-size: 16px;
 }
 
 /* -----------------------------------------------------

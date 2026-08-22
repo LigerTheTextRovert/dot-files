@@ -30,6 +30,7 @@ output * bg /home/liger/Downloads/pexels-eberhardgross-691668.jpg fill
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 
 exec waybar
+exec waypaper --restore
 #
 # Example configuration:
 #
@@ -97,6 +98,7 @@ input type:keyboard {
 
     #bindsym Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png
     bindsym Print exec grim -g "$(slurp)" - | wl-copy
+    bindsym $mod+Shift+w exec networkmanager_dmenu
 #
 # Moving around:
 #

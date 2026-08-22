@@ -201,13 +201,11 @@
     }
   },
   "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "Network: {essid} ({signalStrength}%)",
-    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-    "format-linked": "{ifname} (No IP) 󰊗",
-    "format-disconnected": "Disconnected :(",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "format-wifi": "󰖩 {essid}",
+    "format-ethernet": "󰈀 {ipaddr}",
+    "format-disconnected": "󰖪",
+    "on-click": "networkmanager_dmenu",
+    "tooltip-format": "{ifname}\n{essid}\nSignal: {signalStrength}%"
   },
   "custom/media": {
     "format": "{icon} {text}",

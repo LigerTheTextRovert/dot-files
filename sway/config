@@ -25,12 +25,13 @@ set $menu wofi --show drun
 
 xwayland enable 
 
-output * bg /home/liger/Downloads/pexels-eberhardgross-691668.jpg fill
+output * bg /home/liger/Downloads/nasa-V4ZksNimxLk-unsplash.jpg fill
 
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 
 exec waybar
-exec waypaper --restore
+#exec waypaper --restore
+exec nm-applet --indicator
 #
 # Example configuration:
 #

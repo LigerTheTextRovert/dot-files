@@ -134,10 +134,4 @@ export PATH="/home/liger/.local/bin:$PATH"
 # export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
 export PATH="$PATH:/usr/pgadmin4/bin"
 
-# Add to ~/.bashrc, ~/.zshrc, or ~/.profile
-export ANTHROPIC_BASE_URL="https://agentrouter.org/"
-export ANTHROPIC_AUTH_TOKEN="sk-r5KcWlOtKeEh9w1Q4SYkImQwzeKpTGjtvveBln2lMPPnIQWd"
-export ANTHROPIC_API_KEY="sk-r5KcWlOtKeEh9w1Q4SYkImQwzeKpTGjtvveBln2lMPPnIQWd"
-export ANTHROPIC_MODEL="claude-opus-4-8"
-export ANTHROPIC_MODEL="claude-opus-5"
 export PATH="$PATH:$(npm root -g)/bin"

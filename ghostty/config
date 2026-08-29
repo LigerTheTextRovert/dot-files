@@ -11,6 +11,9 @@ background = #141414
 working-directory = home
 window-inherit-working-directory = false
 
+font-style-bold = false
+font-style-bold-italic = false
+
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
@@ -23,7 +26,8 @@ shell-integration = zsh
 mouse-hide-while-typing = true
 unfocused-split-opacity = 0.9
 
-theme = Solarized Dark Higher Contrast
+#theme = Solarized Dark Higher Contrast
+theme = "Dracula"
 link-url = true
 gtk-titlebar = false
 

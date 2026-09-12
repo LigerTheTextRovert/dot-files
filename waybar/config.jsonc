@@ -24,23 +24,6 @@
     "clock",
     "tray"
   ],
-  // Modules configuration
-  // "sway/workspaces": {
-  //     "disable-scroll": true,
-  //     "all-outputs": true,
-  //     "warp-on-scroll": false,
-  //     "format": "{name}: {icon}",
-  //     "format-icons": {
-  //         "1": "",
-  //         "2": "",
-  //         "3": "",
-  //         "4": "",
-  //         "5": "",
-  //         "urgent": "",
-  //         "focused": "",
-  //         "default": ""
-  //     }
-  // },
   "niri/workspaces": {
     "format": "{icon} {windows}",
     "format-window-separator": " ",
@@ -173,11 +156,9 @@
     },
     "format": "{capacity}% {icon}",
     "format-full": "{capacity}% {icon}",
-    "format-charging": "{capacity}% 󰃨",
-    "format-plugged": "{capacity}% ",
+    "format-charging": "{capacity}% 󰃨 ",
+    "format-plugged": "{capacity}%  ",
     "format-alt": "{time} {icon}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
     "format-icons": [
       "",
       "",

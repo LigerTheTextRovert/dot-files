@@ -1,36 +1,40 @@
-/* Kanagawa-inspired Waybar
+/* WhiteSur (macOS Big Sur) Waybar — dark
  *
  * Palette:
- * sumiInk0  #16161D
- * sumiInk1  #1F1F28
- * sumiInk2  #2A2A37
- * sumiInk3  #363646
- * fujiWhite #DCD7BA
- * fujiGray  #727169
- * oldWhite  #C8C093
- * autumnRed #C34043
- * autumnYellow #DCA561
- * autumnGreen #76946A
- * waveBlue1 #223249
- * waveAqua1 #6A9589
- * crystalBlue #7E9CD8
+ * headerbar dark  #2B2B2B
+ * window dark     #333333
+ * sidebar dark    #353535
+ * fg              #FFFFFF
+ * fg dim          #A6A6A6
+ * accent blue     #3689E6
+ * red             #E9575A
+ * green           #31D07D? -> macOS green #3DDC84 / WhiteSur success #2EBF6F
  */
 
+/* =====================================================
+ * WhiteSur / macOS Big Sur — Dark Waybar
+ * ===================================================== */
+
 * {
-  font-family: 'JetBrains Mono NL', monospace;
+  font-family:
+    'JetBrain Mono', 'Vazir', 'Fira Code', 'Symbols Nerd Font', sans-serif;
   font-size: 14px;
-  font-weight: normal;
+  font-weight: 500;
   min-height: 0;
 }
 
+/* -----------------------------------------------------
+ * Main bar
+ * ----------------------------------------------------- */
+
 window#waybar {
-  background: #1f1f28;
-  color: #dcd7ba;
+  background: rgba(43, 43, 43, 0.94);
+  color: #ffffff;
 
-  border-bottom: 1px solid #363646;
+  margin: 6px 12px;
 
-  transition-property: background-color;
-  transition-duration: 0.2s;
+  border: none;
+  box-shadow: none;
 }
 
 window#waybar.hidden {
@@ -42,40 +46,39 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 
 #workspaces {
-  margin: 0;
-  /* padding: 0 4px; */
+  padding: 0 2px;
+  background: transparent;
 }
 
 #workspaces button {
-  padding: 0 8px;
-  /* margin: 0 2px; */
+  min-width: 0;
 
-  color: #727169;
+  /* margin: 4px 2px; */
+  padding: 0 9px;
+
+  color: #a6a6a6;
   background: transparent;
-
   border: none;
-  border-radius: 0;
-
   box-shadow: none;
+
+  margin: 4px 2px;
+  padding: 0 10px;
 }
 
 #workspaces button:hover {
-  color: #dcd7ba;
-  background: #2a2a37;
-  box-shadow: none;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-  color: #dcd7ba;
-  background: #363646;
-
-  box-shadow: inset 0 -2px #7e9cd8;
+  color: #ffffff;
+  background: #3689e6;
 }
 
 #workspaces button.urgent {
-  color: #c34043;
-  background: transparent;
+  color: #ffffff;
+  background: #e9575a;
 }
 
 /* -----------------------------------------------------
@@ -97,10 +100,19 @@ window#waybar.hidden {
 #scratchpad,
 #power-profiles-daemon {
   padding: 0 9px;
-  margin: 0;
+
+  color: #ffffff;
   background: transparent;
-  color: #c8c093;
-  font-size: 16px;
+}
+
+/* -----------------------------------------------------
+ * Sway mode
+ * ----------------------------------------------------- */
+
+#sway-mode {
+  padding: 0 9px;
+  color: #3689e6;
+  font-weight: bold;
 }
 
 /* -----------------------------------------------------
@@ -108,8 +120,8 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 
 #clock {
-  color: #dcd7ba;
   padding-right: 12px;
+  color: #ffffff;
 }
 
 /* -----------------------------------------------------
@@ -117,33 +129,11 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 
 #network {
-  color: #7e9cd8;
-}
-
-#network:hover {
-  color: #dcd7ba;
-  background: #2a2a37;
+  color: #4ba3f2;
 }
 
 #network.disconnected {
-  color: #c34043;
-}
-
-/* -----------------------------------------------------
- * Audio
- * ----------------------------------------------------- */
-
-#pulseaudio {
-  color: #dca561;
-}
-
-#pulseaudio:hover {
-  color: #dcd7ba;
-  background: #2a2a37;
-}
-
-#pulseaudio.muted {
-  color: #727169;
+  color: #e9575a;
 }
 
 /* -----------------------------------------------------
@@ -151,20 +141,40 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 
 #battery {
-  color: #76946a;
+  color: #ffffff;
 }
 
 #battery.charging,
 #battery.plugged {
-  color: #98bb6c;
+  color: #3fb950;
 }
 
 #battery.warning:not(.charging) {
-  color: #dca561;
+  color: #d29922;
 }
 
 #battery.critical:not(.charging) {
-  color: #c34043;
+  color: #e9575a;
+}
+
+/* -----------------------------------------------------
+ * CPU / Memory / Temperature
+ * ----------------------------------------------------- */
+
+#cpu {
+  color: #b9b9b9;
+}
+
+#memory {
+  color: #a6a6a6;
+}
+
+#temperature {
+  color: #b9b9b9;
+}
+
+#temperature.critical {
+  color: #e9575a;
 }
 
 /* -----------------------------------------------------
@@ -173,7 +183,7 @@ window#waybar.hidden {
 
 #language,
 #keyboard-state {
-  color: #957fb8;
+  color: #a6a6a6;
 }
 
 #language {
@@ -182,7 +192,6 @@ window#waybar.hidden {
 
 #keyboard-state {
   padding: 0;
-  margin: 0;
 }
 
 #keyboard-state > label {
@@ -190,7 +199,7 @@ window#waybar.hidden {
 }
 
 #keyboard-state > label.locked {
-  background: #363646;
+  color: #3689e6;
 }
 
 /* -----------------------------------------------------
@@ -198,8 +207,8 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 
 #tray {
-  color: #c8c093;
   padding: 0 8px;
+  color: #ffffff;
 }
 
 #tray > .passive {
@@ -207,39 +216,7 @@ window#waybar.hidden {
 }
 
 #tray > .needs-attention {
-  color: #c34043;
-}
-
-/* -----------------------------------------------------
- * CPU / Memory / Temperature
- * ----------------------------------------------------- */
-
-#cpu {
-  color: #7e9cd8;
-  font-size: 16px;
-}
-
-#memory {
-  color: #957fb8;
-  font-size: 16px;
-}
-
-#temperature {
-  color: #dca561;
-  font-size: 16px;
-}
-
-#temperature.critical {
-  color: #c34043;
-  font-size: 16px;
-}
-
-/* -----------------------------------------------------
- * Backlight
- * ----------------------------------------------------- */
-
-#backlight {
-  color: #7aa89f;
+  color: #e9575a;
 }
 
 /* -----------------------------------------------------
@@ -247,7 +224,7 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 
 #scratchpad {
-  color: #727169;
+  color: #a6a6a6;
 }
 
 #scratchpad.empty {
@@ -260,12 +237,12 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 
 #idle_inhibitor {
-  color: #727169;
+  color: #a6a6a6;
 }
 
 #idle_inhibitor.activated {
-  color: #dcd7ba;
-  background: #363646;
+  color: #ffffff;
+  background: #3689e6;
 }
 
 /* -----------------------------------------------------
@@ -273,41 +250,29 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 
 #power-profiles-daemon {
-  color: #727169;
+  color: #a6a6a6;
 }
 
 #power-profiles-daemon.performance {
-  color: #c34043;
+  color: #e9575a;
 }
 
 #power-profiles-daemon.balanced {
-  color: #7e9cd8;
+  color: #3689e6;
 }
 
 #power-profiles-daemon.power-saver {
-  color: #76946a;
+  color: #3fb950;
 }
 
 /* -----------------------------------------------------
- * Tooltip
- * ----------------------------------------------------- */
-
-tooltip {
-  background: #1f1f28;
-  border: 1px solid #363646;
-}
-
-tooltip label {
-  color: #dcd7ba;
-  padding: 4px;
-}
-
-/* -----------------------------------------------------
- * General hover
+ * Hover states
  * ----------------------------------------------------- */
 
 #clock:hover,
 #battery:hover,
+#network:hover,
+#pulseaudio:hover,
 #language:hover,
 #keyboard-state:hover,
 #tray:hover,
@@ -318,5 +283,19 @@ tooltip label {
 #idle_inhibitor:hover,
 #scratchpad:hover,
 #power-profiles-daemon:hover {
-  background: #2a2a37;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* -----------------------------------------------------
+ * Tooltip
+ * ----------------------------------------------------- */
+
+tooltip {
+  background: rgba(43, 43, 43, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+tooltip label {
+  color: #ffffff;
+  padding: 6px;
 }

@@ -25,7 +25,8 @@ set $menu wofi --show drun
 
 xwayland enable 
 
-output * bg /home/liger/Downloads/nasa-V4ZksNimxLk-unsplash.jpg fill
+output * bg /home/liger/Pictures/Wallpapers/WhiteSur-dark.jpg fill
+# output * bg /home/liger/Downloads/mike-iukhtenko-a2kD4b0KK4s-unsplash.jpg fill
 
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 
@@ -250,7 +251,7 @@ bindsym $mod+r mode "resize"
 #     }
 # }
 
-### Kanagawa theme
+### WhiteSur theme
 
 # No titlebars in normal tiling mode.
 # Tabbed/stacking layouts still display their container titles.
@@ -259,22 +260,20 @@ default_floating_border pixel 1
 titlebar_border_thickness 1
 titlebar_padding 4 4
 
-# Kanagawa palette
-# sumiInk0   #16161D
-# sumiInk1   #1F1F28
-# sumiInk2   #2A2A37
-# sumiInk3   #363646
-# fujiWhite  #DCD7BA
-# fujiGray   #727169
-# crystalBlue #7E9CD8
-# springGreen #98BB6C
-# autumnRed  #C34043
-# autumnYellow #DCA561
+# macOS-like rounded corners are not supported by sway 1.12
 
-client.focused            #7E9CD8      #2A2A37        #DCD7BA      #7E9CD8        #7E9CD8
-client.focused_inactive   #363646      #1F1F28        #727169      #363646        #363646
-client.unfocused          #2A2A37      #1F1F28        #727169      #2A2A37        #2A2A37
-client.urgent             #C34043      #C34043        #DCD7BA      #C34043        #C34043
-client.placeholder        #16161D      #16161D        #727169      #16161D        #16161D
+# WhiteSur palette (dark)
+# accentBlue  #3689E6
+# headerbar   #2B2B2B
+# windowBg    #333333
+# fgWhite     #FFFFFF
+# fgDim       #A6A6A6
+# urgentRed   #E9575A
+
+client.focused            #3689E6      #333333        #FFFFFF      #3689E6        #3689E6
+client.focused_inactive   #525252      #2B2B2B        #FFFFFF      #525252        #525252
+client.unfocused          #525252      #2B2B2B        #A6A6A6      #525252        #525252
+client.urgent             #E9575A      #E9575A        #FFFFFF      #E9575A        #E9575A
+client.placeholder        #525252      #2B2B2B        #A6A6A6      #525252        #525252
 
 include /etc/sway/config.d/*

@@ -16,9 +16,8 @@
  * ===================================================== */
 
 * {
-  font-family:
-    'JetBrain Mono', 'Vazir', 'Fira Code', 'Symbols Nerd Font', sans-serif;
-  font-size: 14px;
+  font-family: 'JetBrains Mono', 'Vazir';
+  font-size: 15px;
   font-weight: 500;
   min-height: 0;
 }
@@ -86,6 +85,7 @@ window#waybar.hidden {
  * ----------------------------------------------------- */
 
 #clock,
+#custom-jalali,
 #battery,
 #network,
 #pulseaudio,
@@ -100,9 +100,12 @@ window#waybar.hidden {
 #scratchpad,
 #power-profiles-daemon {
   padding: 0 9px;
+  margin-bottom: 1px;
 
   color: #ffffff;
   background: transparent;
+
+  font-weight: 400;
 }
 
 /* -----------------------------------------------------
@@ -116,10 +119,10 @@ window#waybar.hidden {
 }
 
 /* -----------------------------------------------------
- * Clock
+ * Clock (Jalali: time <-> Persian date on click)
  * ----------------------------------------------------- */
 
-#clock {
+#custom-jalali {
   padding-right: 12px;
   color: #ffffff;
 }
@@ -266,36 +269,16 @@ window#waybar.hidden {
 }
 
 /* -----------------------------------------------------
- * Hover states
- * ----------------------------------------------------- */
-
-#clock:hover,
-#battery:hover,
-#network:hover,
-#pulseaudio:hover,
-#language:hover,
-#keyboard-state:hover,
-#tray:hover,
-#cpu:hover,
-#memory:hover,
-#temperature:hover,
-#backlight:hover,
-#idle_inhibitor:hover,
-#scratchpad:hover,
-#power-profiles-daemon:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* -----------------------------------------------------
  * Tooltip
  * ----------------------------------------------------- */
 
 tooltip {
-  background: rgba(43, 43, 43, 0.98);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(38, 38, 38, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
 }
 
 tooltip label {
   color: #ffffff;
-  padding: 6px;
+  padding: 10px 14px;
 }

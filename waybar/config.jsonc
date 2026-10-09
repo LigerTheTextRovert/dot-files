@@ -1,7 +1,7 @@
 // -*- mode: jsonc -*-
 {
-  "layer": "bottom", // Waybar at top layer
-  "position": "bottom", // Waybar position (top|bottom|left|right)
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
   "height": 28, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
   "spacing": 0, // Gaps between modules (4px)
@@ -14,14 +14,14 @@
   ],
   "modules-center": [],
   "modules-right": [
+    "sway/language",
     "network",
     "power-profiles-daemon",
     "cpu",
     "memory",
-    "sway/language",
     "battery",
     "battery#bat2",
-    "clock",
+    "custom/jalali",
     "tray"
   ],
   "niri/workspaces": {
@@ -108,10 +108,14 @@
     //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
     // }
   },
-  "clock": {
-    // "timezone": "America/New_York",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}"
+  // Jalali clock: shows time, click toggles to the Persian date
+  // (Persian digits), hover shows today's date in Jalali + Gregorian.
+  "custom/jalali": {
+    "exec": "python3 $HOME/.config/waybar/jalali.py",
+    "return-type": "json",
+    "interval": 60,
+    // exec-on-event (default true) re-runs the script after the toggle
+    "on-click": "f=${XDG_RUNTIME_DIR:-/tmp}/waybar-jalali-mode; if [ -f $f ]; then rm $f; else touch $f; fi"
   },
   "cpu": {
     "format": "CPU: {usage}%",
@@ -156,8 +160,8 @@
     },
     "format": "{capacity}% {icon}",
     "format-full": "{capacity}% {icon}",
-    "format-charging": "{capacity}% 󰃨 ",
-    "format-plugged": "{capacity}%  ",
+    "format-charging": "{capacity}% 󰃨",
+    "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
     "format-icons": [
       "",

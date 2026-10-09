@@ -1,15 +1,17 @@
 # font-family = "Noto Sans Mono"
-font-family = "Fira Code"
+font-family = "Adwaita Mono"
 font-size = 15
 
 # Correct spacing and explicit opacity
-background-opacity = 1
+background-opacity = 0.94
 
 background = #141414
 # background = #010b14
 
 working-directory = home
 window-inherit-working-directory = false
+
+adjust-cell-height = 5%
 
 font-style-bold = false
 font-style-bold-italic = false
@@ -27,7 +29,8 @@ mouse-hide-while-typing = true
 unfocused-split-opacity = 0.9
 
 #theme = Solarized Dark Higher Contrast
-theme = "Dracula"
+#theme = "Dracula"
+theme = Atom One Dark
 link-url = true
 gtk-titlebar = false
 

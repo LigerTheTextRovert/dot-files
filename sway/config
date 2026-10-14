@@ -17,7 +17,7 @@ set $right l
 set $term ghostty 
 # Your preferred application launcher
 # set $menu wmenu-run
-set $menu wofi --show drun
+set $menu rofi -show drun
 
 ### Output configuration
 #
@@ -99,9 +99,12 @@ input type:keyboard {
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-    #bindsym Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png
-    bindsym Print exec grim -g "$(slurp)" - | wl-copy
+    # Screenshot, Wi-Fi, and Bluetooth (Rofi menus)
+    bindsym Print exec ~/.config/rofi/scripts/rofi-screenshot
+    bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
+    bindsym $mod+Shift+s exec ~/.config/rofi/scripts/rofi-screenshot
     bindsym $mod+Shift+w exec networkmanager_dmenu
+    bindsym $mod+Shift+b exec ~/.config/rofi/scripts/rofi-bluetooth
 #
 # Moving around:
 #

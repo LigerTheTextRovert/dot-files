@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+#
+# rofi-screenshot
+# Interactive screenshot menu for Sway / Wayland using Rofi, Grim, and Slurp
+#
+
+DIR="${HOME}/Pictures/Screenshots"
+mkdir -p "$DIR"
+
+# Options
+OPT_FULL="󰹑  Capture Full Screen"
+OPT_AREA="󰒆  Capture Selected Area"
+OPT_WIN="󱂬  Capture Active Window"
+OPT_DELAY_FULL="󰔛  Capture Full Screen (5s delay)"
+OPT_DELAY_AREA="󰔛  Capture Selected Area (5s delay)"
+
+OPTIONS="${OPT_FULL}\n${OPT_AREA}\n${OPT_WIN}\n${OPT_DELAY_FULL}\n${OPT_DELAY_AREA}"
+
+CHOSEN=$(echo -e "$OPTIONS" | rofi -dmenu -i -p "Screenshot" -l 5)
+
+if [ -z "$CHOSEN" ]; then
+    exit 0
+fi
+
+# Generate timestamped filename
+FILE="${DIR}/Screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png"
+
+notify_and_copy() {
+    if [ -f "$FILE" ] && [ -s "$FILE" ]; then
+        wl-copy --type image/png < "$FILE"
+        canberra-gtk-play -i camera-shutter 2>/dev/null &
+        notify-send -i "$FILE" "Screenshot Saved" "Saved to $(basename "$DIR")/$(basename "$FILE")\nCopied to clipboard."
+    else
+        rm -f "$FILE"
+    fi
+}
+
+case "$CHOSEN" in
+    "$OPT_FULL")
+        sleep 0.5
+        grim "$FILE"
+        notify_and_copy
+        ;;
+    "$OPT_AREA")
+        GEOM=$(slurp)
+        if [ -n "$GEOM" ]; then
+            grim -g "$GEOM" "$FILE"
+            notify_and_copy
+        fi
+        ;;
+    "$OPT_WIN")
+        # Give sway a moment to refocus active window after rofi closes
+        sleep 0.5
+        GEOM=$(swaymsg -t get_tree | jq -r '.. | select(.focused? == true) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')
+        if [ -n "$GEOM" ]; then
+            grim -g "$GEOM" "$FILE"
+            notify_and_copy
+        fi
+        ;;
+    "$OPT_DELAY_FULL")
+        sleep 5
+        grim "$FILE"
+        notify_and_copy
+        ;;
+    "$OPT_DELAY_AREA")
+        sleep 5
+        GEOM=$(slurp)
+        if [ -n "$GEOM" ]; then
+            grim -g "$GEOM" "$FILE"
+            notify_and_copy
+        fi
+        ;;
+esac

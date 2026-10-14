@@ -1,0 +1,21 @@
+configuration {
+    modes:                      [ drun, run ];
+    show-icons:                 true;
+    icon-theme:                 "WhiteSur-dark";
+    display-drun:               "";
+    display-run:                "";
+    drun-display-format:        "{name}";
+    font:                       "Vazirmatn UI NL, SF Pro Text, Fira Code, sans-serif 12";
+    terminal:                   "ghostty";
+    matching:                   "fuzzy";
+    sort:                       true;
+    sorting-method:             "fzf";
+    case-sensitive:             false;
+    disable-history:            false;
+
+    drun {
+        DBusActivatable:        false;
+    }
+}
+
+@theme "whitesur-dark"

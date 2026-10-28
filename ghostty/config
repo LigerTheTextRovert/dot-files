@@ -1,9 +1,8 @@
 # font-family = "Noto Sans Mono"
-font-family = "Adwaita Mono"
+font-family = "JetBrains Mono" 
 font-size = 15
-
 # Correct spacing and explicit opacity
-background-opacity = 0.94
+background-opacity = 0.92
 
 background = #141414
 # background = #010b14
@@ -24,13 +23,13 @@ window-padding-x = 0
 window-padding-y = 0
 
 cursor-style = block
+cursor-color = #999999
 shell-integration = zsh
 mouse-hide-while-typing = true
 unfocused-split-opacity = 0.9
 
-#theme = Solarized Dark Higher Contrast
+theme = Solarized Dark Higher Contrast
 #theme = "Dracula"
-theme = Atom One Dark
 link-url = true
 gtk-titlebar = false
 
